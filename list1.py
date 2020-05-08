@@ -26,8 +26,7 @@ __author__ = "???"
 
 
 def match_ends(words):
-    # your code here
-    return
+    return len([word for word in words if len(word) >= 2 and word[0] == word[-1]])
 
 
 # B. front_x
@@ -42,8 +41,9 @@ def match_ends(words):
 
 
 def front_x(words):
-    # your code here
-    return
+    filtered = sorted([word for word in words if word[0] == "x"])
+
+    return filtered + sorted([word for word in words if word[0] != "x"])
 
 
 # C. sort_last
@@ -56,12 +56,12 @@ def front_x(words):
 
 
 def sort_last(tuples):
-    # your code here
-    return
-
+    return(sorted(tuples, key=lambda x: x[-1]))
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
+
+
 def test(got, expected):
     if got == expected:
         prefix = ' OK '
