@@ -28,8 +28,15 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    result = []
+    x = 0
+    for index, number in enumerate(nums):
+        if index+1 < len(nums):
+            x = index+1
+            if nums[index] == nums[x]:
+                continue
+        result = [*result, number]
+    return result
 
 
 # E. linear_merge
@@ -44,12 +51,23 @@ def remove_adjacent(nums):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    i, j = 0, 0
+    result = []
+    while i < len(list1) and j < len(list2):
+        if list1[i] < list2[j]:
+            result = [*result, list1[i]]
+            i += 1
+        else:
+            result = [*result, list2[j]]
+            j += 1
+
+    return result + list1[i:] + list2[j:]
 
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
+
+
 def test(got, expected):
     if got == expected:
         prefix = ' OK '
